@@ -19,8 +19,8 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(jobs))
   }
 
-  const deleteHandler = (t) => {
-    dispatch(DeleteTodoAction(t))
+  const deleteHandler = (t, index) => {
+    dispatch(DeleteTodoAction(t, index))
   }
 
   return (
@@ -33,12 +33,12 @@ function App() {
         </form>
         <ul className='allTodo'>
           {
-            todos && todos.map((t) => (
-          <li key={t.id} className='singleTodo'>
+            todos && todos.map((t, index) => (
+          <li key={t.id} id={index} className= 'singleTodo'>
           <span className='textTodo'>
             {t.todo}
           </span>
-          <button onClick={() => deleteHandler(t)}>Delete</button>
+          <button onClick={() => deleteHandler(t, index)}>Delete</button>
           </li>
             ))
           }

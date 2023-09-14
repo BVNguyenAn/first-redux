@@ -17,8 +17,11 @@ const reducer = combineReducers({
     }
   };
 
-const persistedState = loadState();
-console.log(persistedState);
+const persistedState = {
+  Todo: {
+    todos: loadState()
+  }
+};
 
 const initialState = {};
 

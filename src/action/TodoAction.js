@@ -9,11 +9,12 @@ export const AddTodoAction = (todo) => (dispatch, getState) =>{
     } 
 };
 
-export const DeleteTodoAction = (todo) => (dispatch, getState) =>{
+export const DeleteTodoAction = (todo, i) => (dispatch, getState) =>{
     const {Todo: {todos}} = getState();
-
+    console.log(i);
     dispatch({
         type: "DELETE_TODO",
         payload: todos.filter(t => t.id !== todo.id )
     })
+    localStorage.setItem('todos', JSON.stringify(getState().Todo.todos))
 };
