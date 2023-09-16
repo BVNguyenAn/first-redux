@@ -1,6 +1,9 @@
 export const AddTodoAction = (todo) => (dispatch, getState) =>{
     const {Todo:{todos} } = getState();
     const hasTodo = todos.find(i => i.todo === todo);
+    if(hasTodo){
+        alert('Exist that task')
+    }
     if(!hasTodo && todo !== ''){
         dispatch({
             type: 'ADD_TODO',
@@ -9,9 +12,8 @@ export const AddTodoAction = (todo) => (dispatch, getState) =>{
     } 
 };
 
-export const DeleteTodoAction = (todo, i) => (dispatch, getState) =>{
+export const DeleteTodoAction = (todo) => (dispatch, getState) =>{
     const {Todo: {todos}} = getState();
-    console.log(i);
     dispatch({
         type: "DELETE_TODO",
         payload: todos.filter(t => t.id !== todo.id )
