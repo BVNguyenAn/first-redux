@@ -13,6 +13,11 @@
 .formTodo{
   width: 100%;
 }
+.containApp{
+  width: 150%;
+  position: relative;
+  left: -90px;
+}
 .inpTodo{
   width: 40%;
   height: 50px;
@@ -36,6 +41,32 @@
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+.inpEditTodo{
+  width: 50%;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #282c34;
+  border: 1px solid #7fcdfe;
+  padding-left: 20px;
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+}
+.inpEditTodo:focus{
+  outline: none;
+}
+.editBtn{
+  color: white;
+  border: none;
+  background-color: #7fcdfe;
+  height: 54px;
+  width: 20%;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: relative;
+}
 .singleTodo{
   display: flex;
   background-color: #7fcdfe;
@@ -51,7 +82,7 @@
 .containBtn{
   display: flex;
   flex-direction: row;
-  left: -20px;
+  right: -70px;
   position: relative;
 }
 .containBtn button {

@@ -12,7 +12,7 @@ const {todos} = Todo;
 }
 
   return(
-    <div>
+    <div className='containApp'>
     {
       todos && todos.map((t) => {
         if(!t.isEditing){

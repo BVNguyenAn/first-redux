@@ -15,8 +15,8 @@ const EditTask = (t) => {
     }
   return (
     <>
-    <input value={todo} onChange={(e) => setTodo(e.target.value)}/>
-    <button onClick={() => handleDone(todo)}>Change</button>
+    <input className='inpEditTodo' value={todo} onChange={(e) => setTodo(e.target.value)}/>
+    <button className='editBtn' onClick={() => handleDone(todo)}>Change</button>
     </>
   )
 }
