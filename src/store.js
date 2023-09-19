@@ -9,9 +9,14 @@ const reducer = combineReducers({
 });
 
  const loadState = () => {
-    try {
+    try {      
       const stateString = localStorage.getItem("todos");
-      return JSON.parse(stateString);
+      if(stateString !== null){
+              return JSON.parse(stateString);
+      }else{
+        return []
+      }
+
     } catch (error) {
       return undefined;
     }

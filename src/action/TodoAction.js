@@ -1,13 +1,13 @@
 export const AddTodoAction = (todo) => (dispatch, getState) =>{
     const {Todo:{todos} } = getState();
-    const hasTodo = todos.find(i => i.todo === todo);
+    const hasTodo = todos.find(i => i.id === todo.id);
     if(hasTodo){
         alert('Exist that task')
     }
     if(!hasTodo && todo !== ''){
         dispatch({
             type: 'ADD_TODO',
-            payload:[{id : todo, todo}, ...todos]
+            payload:[{ isEditing : false ,id : new Date().getTime(), todo}, ...todos]
         })
     } 
 };
