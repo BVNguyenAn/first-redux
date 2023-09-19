@@ -20,3 +20,26 @@ export const DeleteTodoAction = (todo) => (dispatch, getState) =>{
     })
     localStorage.setItem('todos', JSON.stringify(getState().Todo.todos))
 };
+
+export const EditingAction = (todo) => (dispatch, getState) =>{
+    const {Todo: {todos}} = getState();
+    const before = todos.findIndex((obj => obj.id === todo.id))
+
+    todos[before].isEditing = true
+    dispatch({
+        type: "EDIT_TODO",
+        payload: [ ...todos]
+    })
+    localStorage.setItem('todos', JSON.stringify(getState().Todo.todos))
+};
+export const DoneAction = (todo, text) => (dispatch, getState) =>{
+    const {Todo: {todos}} = getState();
+    const before = todos.findIndex((obj => obj.id === todo.id))
+    todos[before].todo = text
+    todos[before].isEditing = false
+    dispatch({
+        type: 'DONE_TODO',
+        payload: [...todos]
+    })
+    localStorage.setItem('todos', JSON.stringify(getState().Todo.todos))
+};

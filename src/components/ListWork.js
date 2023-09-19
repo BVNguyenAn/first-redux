@@ -1,12 +1,12 @@
 import React from 'react'
-import store from "../store";
+import { useDispatch } from 'react-redux';
+import { EditingAction } from '../action/TodoAction';
 
-const ListWork = ({ children }) => {
+
+const ListWork = ({ children }) => {  
+  const dispatch = useDispatch();
   const changeState = () =>{
-    children.isEditing = !children.isEditing
-    const jobs = store.getState().Todo.todos
-    console.log(jobs);
-    localStorage.setItem('todos', JSON.stringify(jobs))
+    dispatch(EditingAction(children))
   }
   return (
         <li>
